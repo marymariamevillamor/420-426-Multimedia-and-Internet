@@ -1,0 +1,13 @@
+main {
+    display: flex;
+    background-color: rgb(125, 116, 241);
+    justify-content: space-evenly;  
+    width: 100%;
+}
+
+.flex-item {
+    background-color: orange;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+}

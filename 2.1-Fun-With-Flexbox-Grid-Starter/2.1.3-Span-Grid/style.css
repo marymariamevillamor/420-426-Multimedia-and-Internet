@@ -1,0 +1,23 @@
+main {
+    display: grid;
+    grid-template-columns: 80px 200px;
+    grid-template-rows: 80px 200px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.one-by-one {
+    background-color: rgb(125, 116, 241);
+}
+
+.two-by-one {
+    background-color: blueviolet;
+}
+
+.one-by-two {
+    background-color: rgb(145, 91, 196);
+}
+
+.two-by-two {
+    background-color: rgb(228, 133, 231)
+}

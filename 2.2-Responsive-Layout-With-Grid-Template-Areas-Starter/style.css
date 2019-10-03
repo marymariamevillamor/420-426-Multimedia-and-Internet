@@ -1,0 +1,106 @@
+/* 
+Design mobile-first:
+  - This means that the green layout should be your default CSS.
+  - When the browser window grows to be 500px wide, that’s when your first media query should fire.
+
+You should have 3 different instances of the "grid-template-areas" property in your CSS for the 3 different layouts. 
+  - One will be the default and the other 2 will go in their own separate media queries.
+  - Only define your "grid-area" properties once.
+
+When in doubt, consult the Complete Guide to CSS Grid!
+*/
+
+* {box-sizing: border-box;}
+
+body > * {
+  border: 2px solid darkgreen;
+  background-color: palegreen;
+  padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: aside
+}
+
+.ad {
+  grid-area: ad;
+}
+
+footer {
+  grid-area: footer;
+}
+
+body {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 
+  "header"
+  "nav"
+  "main"
+  "aside"
+  "ad"
+  "footer";
+} 
+
+@media (min-width: 500px) {
+  body > * {
+    border: 2px solid blue;
+    background-color: cornflowerblue;
+  }
+
+  body {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+    "header header"
+    "nav    nav"
+    "aside  main"
+    "ad     footer"
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 700px) {
+  body > * {
+    border: 2px solid purple;
+    background-color: violet;
+  }
+
+  body {
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: 
+    "header header  header"
+    "nav    main    aside"
+    "nav    main    ad"
+    "footer footer  footer"
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+}
+

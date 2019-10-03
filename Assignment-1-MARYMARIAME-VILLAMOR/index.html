@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+  <link rel="stylesheet" href="./style.css">
+  <style>
+
+    /**********LINKS********/
+    a:link {
+      color: darkblue;
+    }
+    a:visited {
+      color: darkblue;
+    }
+    a:hover {
+      color: white;
+    }
+
+    /**********SOCIAL MEDIA********/
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 70px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+    }
+
+    .fa:hover {
+      opacity: 0.7;      
+    }
+
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+    }
+
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
+
+    .fa-google {
+      background: #dd4b39;
+      color: white;
+    }
+
+    .fa-linkedin {
+      background: #007bb5;
+      color: white;
+    }
+
+    .fa-instagram {
+      background: #125688;
+      color: white;
+    }
+
+    /**********GALLER SLIDE********/
+    * {box-sizing: border-box}
+    body {font-family: Verdana, sans-serif; margin:0}
+    .mySlides {display: none}
+    img {vertical-align: middle;}
+
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+   .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+
+    @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+    }
+  </style>
+</head>
+<body>
+  <header>PORTFOLIO</header>
+
+  <nav>
+    <ul>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#project">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+      <h1>HOWDY, MY NAME IS MARY MARIAME VILLAMOR</h1>
+      <p>
+        Welcome to my portfolio webpage! I am a second year Computer Science student currently at John Abbott College. 
+        I was born on December 24th, 1998 in the Philippines in the city of Marilao. My family and I came to Canada When
+        I was just four years old. I learned two other languages at a very young age, French and English. I grew up in the 
+        West Island and I hope to graduate and attend Conconrdia's Computer Games program by the end of the year 2021. I am 
+        a hardworking student and always eager to learn every semester. 
+      </p>
+      
+      <h4 id="profile">Skills</h4>
+      <p>
+         My professional skills consist of performing well under pressure, 
+        working well in teams and individually, adapting and learning quickly in any working environment and always assuring
+        excellent customer service. 
+      </p>
+  
+  
+      <h4 id="profile">Interests/Hobbies</h4>
+      <p>
+        I have a very wide range of interests and hobbies but the ones I put in a lot of time and effort are activties such 
+        as going to the gym, eating fast food, binge-watching movies and tv shows, playing soccer, etc. Some of my other hobbies that
+        are somewhat considered weird consist of doing laundry and cleaning my room. 
+      </p>
+  
+      <h2 id="education">Education</h2>
+      <h4>Elementary</h4>
+      <p>First, I attended <i>Murielle-Dumont</i> elementary school.</p>
+      <p><i>(click picture for more details)</i></p>
+      <a href="https://murielle-dumont.ecoleouestmtl.com/"><img src="images/murielle-dumont-1.jpg" style="width:400px; height: 300px;"></a>
+      <h4>High School</h4>
+      <p>From 2011 to 2016, I went to a french public high school called <i>Ecole Secondaire des Sources</i>.</p>
+      <p><i>(click picture for more details)</i></p>
+      <a href="http://www.csmb.qc.ca/fr-CA/enseignement/secondaire/ecoles/liste/des-sources.aspx"><img src="images/hs.jpg" style="width:400px; height: 300px;"></a>
+      <h4>College</h4>
+      <p>I started back in the fall of 2017 at John Abbott and still currently attending.</p>
+      <p><i>(click picture for more details)</i></p>
+      <a href="http://www.johnabbott.qc.ca"><img src="images/college.jpg" style="width: 400px; height: 300px;"></a>
+      
+      <h2 id="project">Projects</h2>
+      <p>Below, you will find all the projects and assignments I've worked on since first semester in the Computer Science program.</p>
+      <br>
+      <p>
+        For this assignment, the goal was to create an application that would take the user's input such as 
+        the category of the expense, the date, a description of the expense and the amount spent (and if credit was used or not). 
+        Once the user clicks on the save button, all the details of said expense will be saved.
+      </p>  
+      <a><img class="imgMain" src="images/expenseAssignment.PNG" style="width: 450px; height: 500px;"></a>
+      <p><br><br>
+        The objective of the project was to create a website that would guide the user on how to use a Budget application. There are 
+        sections of the page on the navigation bar that display the functions that can be done, i.e. Save file, Modify file, Create file, etc.
+        It also has a description of what the Budget application is as well as the display options for the overall report of the budget.
+      </p>
+      <a><img class="imgMain" src="images/budgetAssignment.PNG" style="width: 450px; height: 300px;"></a>
+      <br>
+      <P><br><br>
+        <i>Poor Man's Paint</i> was one of my favourite assignment, it would take the input of the row, of the column and the chosen
+        colour and the grid would reflect it. It's painting but in digital form. It's simple and fun!
+      </P>
+      <a><img class="imgMain" src="images/paintAssignment.PNG" style="width: 450px; height: 300px;"></a>        <br>
+      <br>
+      <br>
+      </img>
+  
+      <h2 id="contact">Contact</h2>
+      <p>
+        Phone Number: 514.692.2498
+        <br>
+        School Email: 1678779@johnabbottcollege.net
+        <br>
+        Mio: Mary Mariame Villamor
+        <br>
+        Personal Email: mary_villamor88@hotmail.com
+      </p>
+    </main> 
+
+   <aside>
+      <div class="slideshow-container">
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 31</div>
+            <img src="images/1.jpg" style="width:100%">
+          </div>
+    
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 31</div>
+            <img src="images/2.jpg" style="width:100%">
+          </div>
+    
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 31</div>
+            <img src="images/3.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">4 / 31</div>
+            <img src="images/4.jpg" style="width:100%">
+         </div>
+    
+         <div class="mySlides fade">
+            <div class="numbertext">5 / 31</div>
+            <img src="images/5.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">6 / 31</div>
+            <img src="images/6.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides fade">
+            <div class="numbertext">7 / 31</div>
+            <img src="images/7.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides fade">
+            <div class="numbertext">8 / 31</div>
+            <img src="images/8.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides fade">
+              <div class="numbertext"> 9/ 31</div>
+              <img src="images/9.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">10 / 31</div>
+            <img src="images/10.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides fade">
+            <div class="numbertext">11 / 31</div>
+            <img src="images/11.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides fade">
+            <div class="numbertext">12 / 31</div>
+            <img src="images/12.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides fade">
+            <div class="numbertext">13 / 31</div>
+            <img src="images/13.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides fade">
+            <div class="numbertext">14 / 31</div>
+            <img src="images/14.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">15 / 31</div>
+            <img src="images/15.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides fade">
+            <div class="numbertext">16 / 31</div>
+            <img src="images/16.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides fade">
+            <div class="numbertext">17 / 31</div>
+            <img src="images/17.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides fade">
+              <div class="numbertext">18 / 31</div>
+              <img src="images/18.jpg" style="width:100%">
+          </div>
+      
+          <div class="mySlides fade">
+            <div class="numbertext">19 / 31</div>
+            <img src="images/19.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">20 / 31</div>
+            <img src="images/20.jpg" style="width:100%">
+          </div>
+        
+          <div class="mySlides fade">
+            <div class="numbertext">21 / 31</div>
+            <img src="images/21.jpg" style="width:100%">
+          </div>
+        
+          <div class="mySlides fade">
+            <div class="numbertext">22 / 31</div>
+            <img src="images/22.jpg" style="width:100%">
+          </div>
+    
+          <div class="mySlides fade">
+            <div class="numbertext">23 / 31</div>
+            <img src="images/23.jpg" style="width:100%">
+          </div>
+        
+          <div class="mySlides fade">
+            <div class="numbertext">24 / 31</div>
+            <img src="images/24.jpg" style="width:100%">
+          </div>
+  
+          <div class="mySlides fade">
+            <div class="numbertext">25 / 31</div>
+            <img src="images/25.jpg" style="width:100%">
+          </div>
+        
+          <div class="mySlides fade">
+            <div class="numbertext">26 / 31</div>
+            <img src="images/26.jpg" style="width:100%">
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+          <span class="dot" onclick="currentSlide(6)"></span>
+          <span class="dot" onclick="currentSlide(7)"></span>
+          <span class="dot" onclick="currentSlide(8)"></span>
+          <span class="dot" onclick="currentSlide(9)"></span>
+          <span class="dot" onclick="currentSlide(10)"></span>
+          <span class="dot" onclick="currentSlide(11)"></span>
+          <span class="dot" onclick="currentSlide(12)"></span>
+          <span class="dot" onclick="currentSlide(13)"></span>    
+          <span class="dot" onclick="currentSlide(14)"></span>
+          <span class="dot" onclick="currentSlide(15)"></span>          
+          <span class="dot" onclick="currentSlide(16)"></span>
+          <span class="dot" onclick="currentSlide(17)"></span>
+          <span class="dot" onclick="currentSlide(18)"></span>
+          <span class="dot" onclick="currentSlide(19)"></span>
+          <span class="dot" onclick="currentSlide(20)"></span>
+          <span class="dot" onclick="currentSlide(21)"></span>    
+          <span class="dot" onclick="currentSlide(22)"></span>
+          <span class="dot" onclick="currentSlide(23)"></span>          
+          <span class="dot" onclick="currentSlide(24)"></span>
+          <span class="dot" onclick="currentSlide(25)"></span>
+          <span class="dot" onclick="currentSlide(26)"></span>     
+        </div>
+
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+            }
+         </script>          
+    </aside>
+
+  <div class="media">
+      <ul>
+          <li><a href="#" class="fa fa-facebook"></a></li>
+          <li><a href="#" class="fa fa-twitter"></a></li>
+          <li><a href="#" class="fa fa-google"></a></li>
+          <li><a href="#" class="fa fa-linkedin"></a></li>
+          <li><a href="#" class="fa fa-instagram"></a></li>
+      </ul>
+  </div>
+
+  <footer>
+    Made by Mary Mariame Villamor
+    <br>
+    Student 1678779
+    <br>
+    John Abbott College 2019
+  </footer>
+</body>
+</html>

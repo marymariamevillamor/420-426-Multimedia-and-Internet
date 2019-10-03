@@ -1,0 +1,19 @@
+main {
+    display: grid;
+    grid-template-columns: 125px 125px;
+    grid-template-rows: 125px 125px;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+}
+.grid-item {
+    display: grid;
+    background-color: rgb(4, 113, 236);
+    justify-content: center;
+}
+
+.flex-item {
+    display: flex;
+    background-color: rgb(105, 179, 105);
+    width: 100px;
+    height: 20px;
+}

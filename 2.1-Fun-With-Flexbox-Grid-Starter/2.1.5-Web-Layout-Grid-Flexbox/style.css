@@ -1,0 +1,46 @@
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 100px [main-start] auto [main-end] 100px;
+    grid-template-areas: 
+      "header header header header header header header header header"
+      "nav nav main main main main main main main"
+      "footer footer footer footer footer footer footer footer footer";
+
+}
+
+header {
+    grid-area: header;
+    background-color: rgb(77, 38, 114);
+    color: white;
+}
+
+nav {
+    grid-area: nav;
+    background-color: rgb(255, 149, 223);
+    color: white;
+    align-content: center
+}
+
+main {
+    grid-area: main;
+    background-color: rgb(6, 170, 199);
+    color: white;
+    align-content: center;
+}
+
+footer {
+    grid-area: footer;
+    background-color: rgb(240, 86, 86);
+    color: white;
+    align-content: center
+}
+
+.text {
+    display: grid;
+    place-content: center;
+}
