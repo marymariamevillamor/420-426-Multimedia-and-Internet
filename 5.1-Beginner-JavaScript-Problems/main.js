@@ -34,3 +34,15 @@ function fizzBuzz(number) {
         return number;
     }
 }
+
+function multiplyDigits(digits) {
+    let numArray = digits.toString();
+    let result = 1;
+
+    for (let i = 0; i < numArray.length; i++) {
+        if (numArray[i] != 0) {
+            result *= numArray[i];
+        }
+    }   
+    return result;
+}
