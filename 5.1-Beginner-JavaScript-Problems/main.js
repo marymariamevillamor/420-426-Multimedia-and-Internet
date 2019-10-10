@@ -46,3 +46,17 @@ function multiplyDigits(digits) {
     }   
     return result;
 }
+
+function secretCode(hiddenText) {
+    let justString = hiddenText.split(' ').join('');
+    let letter;
+    let message = "";
+
+    for (let i = 0; i < justString.length; i++) {
+        letter = justString.charAt(i);
+        if (letter >= 'A' && letter <= 'Z') {
+            message += letter;
+        }        
+    }
+    return message;
+}
