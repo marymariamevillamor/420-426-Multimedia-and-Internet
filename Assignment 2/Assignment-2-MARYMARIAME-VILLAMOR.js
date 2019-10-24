@@ -82,8 +82,27 @@ function safePawns (pawnsCoordinates) {
 }
 
 /*************************** 3. Rectangle Union ***************************/
-function rectanglesUnion (Array) {
-    
+function rectanglesUnion (shapes) {
+    function calculateArea (points) {
+        let value1 = points[2] - points[0];
+        let value2 = points[3] - points[1];
+        return value1 * value2;
+    }
+    function intersectedRectangles(a, b, c) {
+        //a <---> b
+        if (a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1]) {
+            return true;
+        }
+    }
+    let a = shapes[0];
+    let b = shapes[1];
+    let c = shapes[2];
+    let intersect = intersectedRectangles(a, b, c);
+    let areaA = calculateArea(c);
+
+
+    console.log(intersect);
+    //rectanglesUnion([[6, 3, 8, 10], [4, 8, 11, 10], [16, 8, 19, 11]])
 }
 
 /******************************* 4. Fast Train ****************************/
