@@ -1,3 +1,4 @@
+/*************************** 1. Tic-Tac-Toe Referee ************************/
 function xoReferee(firstRow, secondRow, thirdRow) {
     function splitString(value) {
         let stringIt = value.toString();
@@ -32,43 +33,60 @@ function xoReferee(firstRow, secondRow, thirdRow) {
     let theArray = [arr1, arr2, arr3];
     
     console.log(checkWinner(theArray));
-<<<<<<< HEAD
-=======
 }
 
-//TO DO - ASK FOR HELP
-function safePawns (coordinates) {
+/*************************** 2. Pawn Brotherhood **************************/
+function safePawns (pawnsCoordinates) {
     function splitString(value) {
         let stringIt = value.toString();
         let newValue = stringIt.split(',');
         return newValue;
     }
-    function splitMeAgain(value) {
-        let stringIt = value.toString();
-        let newValue = stringIt.split('');
-        return newValue;
-    }
-
-    function byIndex(a, rows, columns) {
-        for (let i = 0; i < a.length; i++) {
-            let indexVal = splitMeAgain(a[i]);
-
-
+    prevLetter = prevL => String.fromCharCode(prevL.charCodeAt(0) - 1);
+    nextLetter = nextL => String.fromCharCode(nextL.charCodeAt(0) + 1);
+    concatPlace = (l, n) => l + n;
+    function checkBackup (arr, left, right) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == left || arr[i] == right) {
+                return true;
+            }
         }
     }
+    function isSafe(coordinatesArr) {
+        let counter = 0;
+        for (let i = 0; i < coordinatesArr.length; i++) {
+            let currentPlace = coordinatesArr[i];
+            let placeArr = currentPlace.split('');
 
-    let ranks = [1, 2, 3, 4, 5, 6, 7, 8];
-    let files = ["a", "b", "c", "d", "e", "f", "g", "h"];
-    let cString = splitString(coordinates);
+            //finding back left coordinates
+            let pl = prevLetter(placeArr[0]);
+            let pn = (placeArr[1] - 1);
+            let left = concatPlace(pl, pn);
 
-    let runThis = byIndex(cString, ranks, files);
-    console.log(runThis);
+            //finding back right coordinates
+            let nl = nextLetter(placeArr[0]);
+            let nn = (placeArr[1] - 1);
+            let right = concatPlace(nl, nn);
+
+            let backup = checkBackup(coordinatesArr, left, right);
+
+            if (backup == true) {
+                counter += 1;
+            }
+        }
+        return counter;
+    }
+    let cString = splitString(pawnsCoordinates);
+    let result = isSafe(cString);
+    console.log(result);    
 }
 
-function rectagnlesUnion () {
+/*************************** 3. Rectangle Union ***************************/
+function rectanglesUnion (Array) {
     
->>>>>>> master
 }
 
+/******************************* 4. Fast Train ****************************/
+function fastTrain(rail) {
 
-
+}
