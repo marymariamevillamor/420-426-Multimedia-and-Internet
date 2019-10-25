@@ -36,7 +36,7 @@ function xoReferee(firstRow, secondRow, thirdRow) {
 }
 
 /*************************** 2. Pawn Brotherhood **************************/
-function safePawns (pawnsCoordinates) {
+function safePawns(pawnsCoordinates) {
     function splitString(value) {
         let stringIt = value.toString();
         let newValue = stringIt.split(',');
@@ -45,7 +45,7 @@ function safePawns (pawnsCoordinates) {
     prevLetter = prevL => String.fromCharCode(prevL.charCodeAt(0) - 1);
     nextLetter = nextL => String.fromCharCode(nextL.charCodeAt(0) + 1);
     concatPlace = (l, n) => l + n;
-    function checkBackup (arr, left, right) {
+    function checkBackup(arr, left, right) {
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] == left || arr[i] == right) {
                 return true;
@@ -82,27 +82,49 @@ function safePawns (pawnsCoordinates) {
 }
 
 /*************************** 3. Rectangle Union ***************************/
-function rectanglesUnion (shapes) {
-    function calculateArea (points) {
+function rectanglesUnion(shapes) {
+    function calculateArea(points) {
         let value1 = points[2] - points[0];
         let value2 = points[3] - points[1];
         return value1 * value2;
     }
-    function intersectedRectangles(a, b, c) {
-        //a <---> b
-        if (a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1]) {
-            return true;
+    function intersectedArea(r1, r2) {
+        if (r1[0] < r1[2] && r1[2] > r2[0] && r1[1] < r2[3] && r1[3] > r2[1]) {
+            //total intersected area
+            let xdistance = Math.min(r1[2], r2[2]) - Math.max(r1[0], r2[0]);
+            let ydistance = Math.min(r1[3], r2[3]) - Math.max(r1[1], r2[1]);
+            let areaX = xdistance * ydistance;
+
+            return areaX;
+        }
+        else {
+            return 0;
+        }
+    }
+    function intersectionExists(points) {    
+        if (intersectedArea(points[0], points[1]) != 0) {
+            return intersectedArea(points[0], points[1]);
+        }
+        else if (intersectedArea(points[1], points[2]) != 0) {
+            return intersectedArea(points[1], points[2]);
+        }
+        else if (intersectedArea(points[2], points[0]) != 0) {
+            return intersectedArea(points[2], points[0])
+        }
+        else {
+            return 0;
         }
     }
     let a = shapes[0];
     let b = shapes[1];
     let c = shapes[2];
-    let intersect = intersectedRectangles(a, b, c);
-    let areaA = calculateArea(c);
 
+    let areaA = calculateArea(a);
+    let areaB = calculateArea(b);
+    let areaC = calculateArea(c);
+    let areaX = intersectionExists(shapes);
 
-    console.log(intersect);
-    //rectanglesUnion([[6, 3, 8, 10], [4, 8, 11, 10], [16, 8, 19, 11]])
+    console.log((areaA + areaB + areaC) - areaX);
 }
 
 /******************************* 4. Fast Train ****************************/
