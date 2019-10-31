@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .bgi {
+            background-image: url("images/bgi.jpg");
+            height: 100%;
+            background-size:cover;
+        }
+
+    </style>
+    
+    <body>        
+        <script src="main.js"></script>   
+        <nav id="navbar">
+            <button class="menuItem" onclick="openPage('Home')">Home</button>
+            <button class="menuItem" onclick="openPage('Next')">What's Next</button>
+            <button class="menuItem" onclick="openPage('Launches')">Launches</button>
+            <button class="menuItem" onclick="openPage('Rockets')">Rockets</button>
+        </nav>
+        <body class="bgi">
+            <div id="Home" class="menuPage">THIS IS HOME PAGE</div>
+            <div id="Next" class="menuPage">THIS IS THE UPCOMING LAUNCHES PAGE</div>
+            <div id="Launches" class="menuPage">THIS IS THE LAUNCHES DETAILS PAGE</div>
+            <div id="Rockets" class="menuPage">THIS IS THE ROCKETS DETAILS PAGE</div>
+        </body>   
+    </body>
+</html>
