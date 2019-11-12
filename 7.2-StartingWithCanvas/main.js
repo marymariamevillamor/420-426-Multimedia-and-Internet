@@ -1,7 +1,7 @@
 const canvas = document.getElementsByTagName('canvas')[0];
 const context = canvas.getContext('2d');
 
-let x;
+let x = 100;
 function animate() {
     requestAnimationFrame(animate);
     context.clearRect(0, 0, canvas.width, canvas.height);
