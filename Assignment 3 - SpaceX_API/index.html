@@ -14,7 +14,6 @@
             display: flex;
             display: row;
         }
-
         .menuItem {
             width: 100%;
             background-color: grey;
@@ -25,6 +24,23 @@
             padding: 15px 32px;
             font-size: 20px;
             margin: 4px 2px;
+        }
+        table {
+            width: 100%;
+            background-color: grey;
+            border-collapse: collapse;
+            opacity: 85%;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: cornflowerblue;
+        }
+        tr:hover {
+            background-color: black;
         }
 
     </style>
@@ -38,9 +54,43 @@
         </nav>
 
         <main>
-            <div id="Home" class="menuPage">THIS IS HOME PAGE</div>
-            <div id="Next" class="menuPage">THIS IS THE UPCOMING LAUNCHES PAGE</div>
-            <div id="Launches" class="menuPage">THIS IS THE LAUNCHES DETAILS PAGE</div>
+            <!-- HOME -->
+            <div id="Home" class="menuPage">THIS IS THE HOME PAGE</div>
+            
+            <!-- WHAT'S NEXT -->
+            <div id="Next" class="menuPage">
+                <h1>NEXT LAUNCH</h1>
+                <table id="nexttable">
+                    <tr>
+                        <th>ROCKET</th>
+                        <th>MISSION</th>
+                        <th>FLIGHT NUMBER</th>
+                        <th>LAUNCH SITE</th>
+                        <th>DATE(UTC)</th>
+                    </tr>
+                </table>
+
+                <br>
+
+                <h2>UPCOMING LAUNCHES</h2>
+                <table id="upcomingtable">
+                    <tr>
+                        <th>ROCKET</th>
+                        <th>MISSION</th>
+                        <th>FLIGHT NUMBER</th>
+                        <th>LAUNCH SITE</th>
+                        <th>DATE(UTC)</th>
+                    </tr>
+                </table>>
+                <p id="test"></p>
+            </div>
+
+            <!-- PAST LAUNCHES -->
+            <div id="Launches" class="menuPage">
+                
+            </div>
+
+            <!-- ROCKETS -->
             <div id="Rockets" class="menuPage">THIS IS THE ROCKETS DETAILS PAGE</div>
         </main>   
 
