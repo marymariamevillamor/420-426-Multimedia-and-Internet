@@ -94,32 +94,26 @@ fetch(pastURL)
   });
 
 function pastLaunches(data) {
-  let main = document.getElementById("Launches");
+  let x = document.getElementById("patchcollection")
 
-  let container = document.createElement("div");
-  container.id = "gridContainer";
-  container.className = "container";
+  for (let i = 0; i < data.length; i++) {
+    let button = document.createElement("button");
+    button.setAttribute("id", "patchbtn");
+    let btnimg = document.createElement("img");
+    btnimg.setAttribute("src", data[i].links.mission_patch_small);
+    button.appendChild(btnimg);
+    button.setAttribute("padding", "30px");
+    x.appendChild(button);
 
-  for (let i = 0; i < 21; i++) {
-    let row = document.createElement("div");
-    row.className = "row";
-    row.id = "row" + i;
-
-    for (let j = 0; j < 4; j++) {
-      let box = document.createElement("div");
-      box.className = "box";
-      row.appendChild(box);
-    }
-    container.appendChild(row);
+    
   }
-
-  main.appendChild(container);
-
-  // let img = document.createElement("img");
-  // img.setAttribute("src", data[0].links.mission_patch);
-  // let x = document.getElementById("patchRow");
-  // x.appendChild(a);
 }
+
+
+
+
+
+
 
 function openPage(pageName) {
   let i;
