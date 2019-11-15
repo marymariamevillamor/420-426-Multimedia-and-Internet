@@ -83,11 +83,40 @@
             text-decoration: none;
             cursor: pointer;
         }
+        header, img {
+            height: 250px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #divbg {
+            background-color: rgba(61, 61, 61, 0.863);
+            font-size:45px;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            width: 100%;
+            display:inline-block;
+        }
+        #Home {
+            padding: 30px;
+        }
+        #funfact {
+            background-color: rgba(61, 61, 61, 0.863);
+            font-size:45px;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+        }
+
 
 
     </style>
     
-    <body>          
+    <body> 
+        <header><img src="images/spaceXlogo.png"></header>    
         <nav id="navbar">
             <button class="menuItem" onclick="openPage('Home')">Home</button>
             <button class="menuItem" onclick="openPage('Next')">What's Next</button>
@@ -97,7 +126,20 @@
 
         <main>
             <!-- HOME -->
-            <div id="Home" class="menuPage">THIS IS THE HOME PAGE</div>
+            <div id="Home" class="menuPage">
+                <div id="divbg">
+                    <p style="font-family: monospace;">SpaceX designs, manufactures and launches advanced rockets and spacecraft. 
+                        The company was founded in 2002 to revolutionize space technology, 
+                        with the ultimate goal of enabling people to live on other planets.
+                    </p>
+                </div>
+
+                <div id="divbg">
+                    <button class="menuItem" onclick="Didyouknow()">DID YOU KNOW?</button>
+                    <div id="funfact">FUN FACT</div>
+                </div>
+
+            </div>
             
             <!-- WHAT'S NEXT -->
             <div id="Next" class="menuPage">

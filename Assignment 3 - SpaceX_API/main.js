@@ -102,8 +102,7 @@ function pastLaunches(data) {
     let btnimg = document.createElement("img");
     btnimg.setAttribute("src", data[i].links.mission_patch_small);
     button.appendChild(btnimg);
-    button.setAttribute("padding", "30px");
-    button.setAttribute("onclick", "showDetails(data[i])");
+    button.setAttribute("onclick", showDetails(data[i]));
 
     let divc = document.createElement("div");
     divc.setAttribute("id", "divcontainer");
@@ -148,4 +147,20 @@ function openPage(pageName) {
     x[i].style.display = "none";  
   }
   document.getElementById(pageName).style.display = "block";  
+}
+
+function Didyouknow() {
+  let fact1 = "SpaceX has gained worldwide attention for a series of historic milestones. It is the only private company capable of returning a spacecraft from low Earth orbit, which it first accomplished in 2010. The company made history again in 2012 when its Dragon spacecraft became the first commercial spacecraft to deliver cargo to and from the International Space Station.";
+  let fact2 = "SpaceX successfully achieved the historic first reflight of an orbital class rocket in 2017, and the company now regularly launches flight-proven rockets. In 2018, SpaceX began launching Falcon Heavy, the world’s most powerful operational rocket by a factor of two.";
+ 
+  let x = document.getElementById("funfact");
+  if (x.innerHTML === "FUN FACT") {
+    x.innerHTML = fact1;    
+  }
+  else if (x.innerHTML === fact1){
+    x.innerHTML = fact2;
+  }
+  else {
+    x.innerHTML = "FUN FACT"
+  }
 }
