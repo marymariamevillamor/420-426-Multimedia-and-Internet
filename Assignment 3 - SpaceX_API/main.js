@@ -103,13 +103,38 @@ function pastLaunches(data) {
     btnimg.setAttribute("src", data[i].links.mission_patch_small);
     button.appendChild(btnimg);
     button.setAttribute("padding", "30px");
-    x.appendChild(button);
+    button.setAttribute("onclick", "showDetails(data[i])");
 
-    
+    let divc = document.createElement("div");
+    divc.setAttribute("id", "divcontainer");
+    divc.appendChild(button);
+
+    x.appendChild(divc);
   }
 }
 
+function showDetails(data) {
+  let modal = document.getElementById("myModal");
+  let btn = document.getElementById("patchbtn");
+  let span = document.getElementsByClassName("close")[0];
 
+  btn.onclick = function() {
+    modal.style.display = "block";
+    let flightnum = document.getElementsById("flightnum");
+    let ltext = document.createTextNode(data.flight_number);
+    flightnum.appendChild(ltext);
+  }
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+}
 
 
 
