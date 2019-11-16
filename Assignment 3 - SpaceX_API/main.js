@@ -112,6 +112,25 @@ function pastLaunches(data) {
   }
 }
 
+/****************************** ROCKETS *******************************/
+const rocketsURL = "https://api.spacexdata.com/v3/rockets";
+
+fetch(rocketsURL)
+  .then(response => response.json())
+  .then(data => {
+    rocketsDetails(data)
+  })
+
+  .catch(function(error) {
+    console.log(error);
+  });
+
+function rocketsDetails(data) {
+  for (rocket in data) {
+    
+  }
+}
+
 function showDetails(data) {
   let modal = document.getElementById("myModal");
   let btn = document.getElementById("patchbtn");
@@ -135,10 +154,6 @@ function showDetails(data) {
   }
 }
 
-
-
-
-
 function openPage(pageName) {
   let i;
   let x = document.getElementsByClassName("menuPage");
@@ -152,15 +167,15 @@ function openPage(pageName) {
 function Didyouknow() {
   let fact1 = "SpaceX has gained worldwide attention for a series of historic milestones. It is the only private company capable of returning a spacecraft from low Earth orbit, which it first accomplished in 2010. The company made history again in 2012 when its Dragon spacecraft became the first commercial spacecraft to deliver cargo to and from the International Space Station.";
   let fact2 = "SpaceX successfully achieved the historic first reflight of an orbital class rocket in 2017, and the company now regularly launches flight-proven rockets. In 2018, SpaceX began launching Falcon Heavy, the world’s most powerful operational rocket by a factor of two.";
- 
+
   let x = document.getElementById("funfact");
-  if (x.innerHTML === "FUN FACT") {
+  if (x.innerHTML === "SpaceX was founded in 2002 and employs over 6,000 people.") {
     x.innerHTML = fact1;    
   }
   else if (x.innerHTML === fact1){
     x.innerHTML = fact2;
   }
   else {
-    x.innerHTML = "FUN FACT"
+    x.innerHTML = "SpaceX was founded in 2002 and employs over 6,000 people."
   }
 }
