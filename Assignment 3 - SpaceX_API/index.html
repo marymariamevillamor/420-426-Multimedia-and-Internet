@@ -45,8 +45,8 @@
         tr:hover {
             background-color: black;
         }
-        #divcontainer {
-            padding: 10px;
+        #myBtn {
+            margin: 10px;
         }
         /* The Modal (background) */
         .modal {
@@ -64,15 +64,18 @@
         }
         /* Modal Content */
         .modal-content {
-            background-color: #fefefe;
+            background-color: rgba(61, 61, 61, 0.95);
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
+            width: 40%;
+            height: 80%;
+            overflow:auto;
+            display: block;
         }
         /* The Close Button */
         .close {
-            color: #aaaaaa;
+            color: white;
             float: right;
             font-size: 28px;
             font-weight: bold;
@@ -110,8 +113,30 @@
             margin: 10px;
             display: inline-block;
         }
-
-
+        #rocketdetails {
+            background-color: rgba(61, 61, 61, 0.863);
+            font-size:45px;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            width: 100%;
+            display: block;
+        }
+        #rocketBtn {
+            font-size: xx-large;
+            font-family: monospace;
+            background-color: grey;
+            color: white;
+            width: 500px;
+            height: 250px;
+            display: inline-block;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        #rocketsContainer {
+            display: flex;
+            justify-content: space-evenly;
+        }
 
     </style>
     
@@ -167,36 +192,59 @@
                         <th>LAUNCH SITE</th>
                         <th>DATE(UTC)</th>
                     </tr>
-                </table>>
+                </table>
                 <p id="test"></p>
             </div>
 
             <!-- PAST LAUNCHES -->
             <div id="Launches" class="menuPage">
                 <h1>PAST LAUNCHES</h1>
-                <div id="patchcollection"></div>
 
+                <!-- The Modal -->
                 <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
 
-                    <div class="modalContent">
-                        <span class="close"></span>
-                        <h1>LAUNCH DETAILS</h1>
-                        <p id="flightnum">Flight Number: </p>
-                        <p id="launchyear">Year: </p>
-                        <p id="site">Site: </p>
-                        <p id="success">Launch Successful: </p>
-                        <p id="report">Report: </p>
-                    </div>
+                        <div style="justify-content: center;">
+                            <img id="patchBtn" style="height: 300px; width: 300px;">
+                        </div>
+
+                        <div style="border: none; display: block;">
+                            <h1>LAUNCH DETAILS</h1>
+                            <p id="flightnum"></p>
+                            <p id="launchyear"></p>
+                            <p id="site"></p>
+                            <p id="success"></p>
+                            <p id="report"></p>
+                            <br>
+                            <h1>ROCKET DETAILS</h1>
+                            <p id="rocketname"></p>
+                            <p id="rocketid"></p>
+                            <p id="rockettype"></p>
+                        </div>
+                    </div>                
                 </div>
-
             </div>
 
             <!-- ROCKETS -->
             <div id="Rockets" class="menuPage">
-                <div id="divbg"></div>
-                <div id="divbg"></div>
-                <div id="divbg"></div>
-                <div id="divbg"></div>
+                <h1>ROCKETS</h1>
+                <div id="rocketsContainer"></div>
+                <!-- The Modal -->
+                <div id="rocketsModal" class="modal">
+                    <!-- Modal content -->                    
+                    <div class="modal-content" style="height: 40%;">  
+                        <span id="rocketspan" class="close">&times;</span>  
+                                            
+                        <h2 id="rname"></h2>
+                        <p id="country"></p>
+                        <p id="firstflight"></p>
+                        <p id="successrate"></p>
+                        <p id="costperlaunch"></p>
+                        <p id="description"></p>
+                    </div>
+                </div>                
             </div>
         </main>   
 
