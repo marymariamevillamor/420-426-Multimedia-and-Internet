@@ -109,7 +109,7 @@ function upcomingLaunches(data) {
 }
 
 /****************************** PAST LAUNCHES *******************************/
-const pastURL = "https://api.spacexdata.com/v3/launches/past";
+const pastURL = "https://api.spacexdata.com/v3/launches/past?limit=3";
 
 fetch(pastURL)
   .then(response => response.json())
@@ -122,8 +122,6 @@ fetch(pastURL)
   });
 
 function pastLaunches(data) {
-  let x = document.getElementById("Launches");
-
   // Get the modal
   let modal = document.getElementById("myModal");
   
@@ -135,47 +133,44 @@ function pastLaunches(data) {
     modal.style.display = "none";
   }
 
-  for (let i = 0; i < data.length; i++) {
-    let button = document.createElement("button");
-    button.setAttribute("id", "myBtn");
-    let btnimg = document.createElement("img");
-    btnimg.setAttribute("src", data[i].links.mission_patch_small);
-    
-    button.appendChild(btnimg);
-    x.appendChild(button);
+  let button = document.getElementById("searchBtn");
 
-    // When the user clicks the button, open the modal 
-    button.onclick = function() {
-      modal.style.display = "block";
-      document.getElementById("patchBtn").setAttribute("src", data[i].links.mission_patch_small);
-      
-      //FLIGHT NUMBER
-      document.getElementById("flightnum").innerHTML = "Flight Number: " + data[i].flight_number;
+  button.onclick = function () {
+    for (let i = 0; i < data.length; i++) {
 
-      //LAUNCH YEAR
-      document.getElementById("launchyear").innerHTML = "Year: " + data[i].launch_year;
+      let x = document.getElementById("userInput").value;
+      if (x == data[i].flight_number) {
+        modal.style.display = "block"; 
 
-      //SITE
-      document.getElementById("site").innerHTML = "Site: " + data[i].launch_site.site_name;
+        document.getElementById("patchimg").setAttribute("src", data[i].links.mission_patch_small);
 
-      //LAUNCH SUCCESSFUL
-      document.getElementById("success").innerHTML = "Launch Successful: " + data[i].launch_success;
-
-      //REPORT
-      document.getElementById("report").innerHTML = "Report: " + data[i].details;
-
-      //ROCKETNAME
-      document.getElementById("rocketname").innerHTML = "Name: " + data[i].rocket.rocket_name;
-
-      //ROCKET ID
-      document.getElementById("rocketid").innerHTML = "Rocket ID: " + data[i].rocket.rocket_id;
-
-      //ROCKET TYPE
-      document.getElementById("rockettype").innerHTML = "Rocket Type: " + data[i].rocket.rocket_type;
+        //FLIGHT NUMBER
+        document.getElementById("flightnum").innerHTML = "Flight Number: " + data[i].flight_number;
+  
+        //LAUNCH YEAR
+        document.getElementById("launchyear").innerHTML = "Year: " + data[i].launch_year;
+  
+        //SITE
+        document.getElementById("site").innerHTML = "Site: " + data[i].launch_site.site_name;
+  
+        //LAUNCH SUCCESSFUL
+        document.getElementById("success").innerHTML = "Launch Successful: " + data[i].launch_success;
+  
+        //REPORT
+        document.getElementById("report").innerHTML = "Report: " + data[i].details;
+  
+        //ROCKETNAME
+        document.getElementById("rocketname").innerHTML = "Name: " + data[i].rocket.rocket_name;
+  
+        //ROCKET ID
+        document.getElementById("rocketid").innerHTML = "Rocket ID: " + data[i].rocket.rocket_id;
+  
+        //ROCKET TYPE
+        document.getElementById("rockettype").innerHTML = "Rocket Type: " + data[i].rocket.rocket_type;
+        break;
+      }
     }
-  }
-
- 
+  } 
 }
 
 /****************************** ROCKETS *******************************/

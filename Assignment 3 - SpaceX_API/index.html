@@ -137,10 +137,22 @@
             display: flex;
             justify-content: space-evenly;
         }
-
+        input[type=number] {
+            width: 130px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
     </style>
     
-    <body> 
+    <body onload="openPage('Home')"> 
         <header><img src="images/spaceXlogo.png"></header>    
         <nav id="navbar">
             <button class="menuItem" onclick="openPage('Home')">Home</button>
@@ -151,7 +163,7 @@
 
         <main>
             <!-- HOME -->
-            <div id="Home" class="menuPage">
+            <div id="Home" class="menuPage" style="display: flex;">
                 <div id="divbg">
                     <h2>WELCOME TO SPACEX</h2>
                     <p style="font-family: monospace;">SpaceX designs, manufactures and launches advanced rockets and spacecraft. 
@@ -200,6 +212,13 @@
             <div id="Launches" class="menuPage">
                 <h1>PAST LAUNCHES</h1>
 
+                <div id="divbg">
+                    <h3>Search Launches</h3>
+                    <input id="userInput" type="number" placeholder="Flight Number Here.." style="width: 25%;">
+                    <br>
+                    <button id="searchBtn" class="menuItem" style="width: 50%;">Search</button>
+                </div>
+
                 <!-- The Modal -->
                 <div id="myModal" class="modal">
                     <!-- Modal content -->
@@ -207,7 +226,7 @@
                         <span class="close">&times;</span>
 
                         <div style="justify-content: center;">
-                            <img id="patchBtn" style="height: 300px; width: 300px;">
+                            <img id="patchimg" style="height: 300px; width: 300px;">
                         </div>
 
                         <div style="border: none; display: block;">
@@ -247,6 +266,8 @@
                 </div>                
             </div>
         </main>   
+
+        <footer>MARY MARIAME VILLAMOR (1678779) - FALL 2019</footer>
 
         <script src="main.js"></script> 
     </body>
