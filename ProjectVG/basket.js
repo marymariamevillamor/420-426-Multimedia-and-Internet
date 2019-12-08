@@ -1,7 +1,7 @@
 class Basket {
     constructor() {
-        this.width = 300;
-        this.height = 200;
+        this.width = 450;
+        this.height = 300;
 
         this.x = canvas.width / 2;
         this.y = canvas.height - this.height;

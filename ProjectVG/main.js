@@ -51,10 +51,11 @@ function animate() {
     context.fillStyle = "lightcoral";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    items.map(item => item.update(items));
+    items.map(item => item.update(basket));
     basket.update();
 }
 
 animate();
-setInterval(spawnItem("fruit"), 1000);
-setInterval(spawnItem("trash"), 2000);
+
+setInterval(function() { spawnItem("fruit"); }, 2500);
+setInterval(function() { spawnItem("trash"); }, 3000);

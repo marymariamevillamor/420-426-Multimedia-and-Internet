@@ -1,7 +1,7 @@
 class Item {
     constructor(type) {
-        this.width = 120;
-        this.height = 140;
+        this.width = 200;
+        this.height = 230;
 
         this.positionRandomly();
         this.generateRandomSpeed(5, 10);
@@ -21,11 +21,13 @@ class Item {
         context.drawImage(itemIMG, this.x, this.y, this.width, this.height);
     }
 
-    update() {
+    update(basket) {
         this.checkBounds();
 
         this.y += this.speedY;
         this.draw();
+
+        this.catchFruit(basket);
     }
 
     checkBounds() {
@@ -89,5 +91,19 @@ class Item {
                 return "images/trashApple.png";
 
         }
+    }
+
+    catchFruit(basket) {
+        if (this.x < (basket.x + basket.width) && 
+            (this.x + this.width) > basket.x &&
+            this.y < (basket.y + basket.height) &&
+            (this.y + this.height) > basket.y) {
+                this.deleteFruit();
+            }
+    }
+
+    deleteFruit() {
+        let index = items.indexOf(this);
+        items.splice(index, 1);
     }
 }
