@@ -4,12 +4,7 @@ const context = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// const items = [];
-// for (let i = 0 ; i < 50; i++) {
-//     const newItem = new Item();
-
-//     items.push(newItem);
-// }
+const items = [];
 
 let item = new Item();
 let basket = new Basket();
@@ -28,14 +23,38 @@ function moveBasket(event) {
     }
 }
 
+function spawnItem(itemType) {
+
+    if (itemType == "fruit") {
+        const newItem = new Item(itemType);
+
+        while (items.some(item => newItem.isColliding(item))) {
+            newItem.positionRandomly();
+        }
+    
+        items.push(newItem);
+    }
+    else {
+        const newItem = new Item(itemType);
+
+        while (items.some(item => newItem.isColliding(item))) {
+            newItem.positionRandomly();
+        }
+    
+        items.push(newItem);
+    }
+
+}
 
 function animate() {
-	requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
+    context.fillStyle = "lightcoral";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    //items.map(item => item.draw());
-    item.update();
+    items.map(item => item.update(items));
     basket.update();
 }
 
 animate();
+setInterval(spawnItem("fruit"), 1000);
+setInterval(spawnItem("trash"), 2000);

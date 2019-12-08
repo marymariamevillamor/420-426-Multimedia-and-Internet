@@ -1,23 +1,31 @@
 class Item {
-    constructor() {
-        this.width = 150;
-        this.height = 150;
+    constructor(type) {
+        this.width = 120;
+        this.height = 140;
 
         this.positionRandomly();
-        this.y = -300;
-        this.speedY = 5;
+        this.generateRandomSpeed(5, 10);
+
+        this.isFruit = false;
+        if (type == "fruit") {
+            this.src = this.selectFruit();
+        }
+        else {
+            this.src = this.selectTrash();
+        }
     }
 
     draw() {
-        //fill canvas background
-        context.fillStyle = "lightcoral";
-        //context.fillRect(0, 0, canvas.width, canvas.height);
+        const itemIMG = new Image();
+        itemIMG.src = this.src;
+        context.drawImage(itemIMG, this.x, this.y, this.width, this.height);
+    }
 
-        //create trash
-        const trash = new Image();
-        trash.src = "images/trashBanana.png";
-        context.drawImage(trash, this.x, this.y, this.width, this.height);
+    update() {
+        this.checkBounds();
 
+        this.y += this.speedY;
+        this.draw();
     }
 
     checkBounds() {
@@ -26,21 +34,60 @@ class Item {
         }
     }
 
-    direction() {
-        this.y += this.speedY;
-    }
+	isColliding(item) {
+		const distance = this.calculateDistance(item);
+		return (distance <= (this.width + item.width) && distance > 0);
+	}
 
-    collideBasket() {
-        
-    }
-
-    update() {
-        this.direction();
-        this.draw();
-    }
+	calculateDistance(item) {
+		return Math.hypot(this.x - item.x, this.y - item.y); 
+	}
 
     positionRandomly() {
-		this.x = this.width + (Math.random() * ((canvas.width - 20) - (this.width * 2)));
-	}
+        this.x = this.width + (Math.random() * ((canvas.width - 30) - (this.width * 2)));
+		this.y = -(this.width + (Math.random() * (canvas.height - (this.width * 2))));
+    }
     
+    generateRandomSpeed(min, max) {
+        this.speedY =  Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+
+    selectFruit() {
+        let randomNumber = Math.floor(Math.random() * 6);
+        this.isFruit = true;
+
+        switch (randomNumber) {
+            case 0:
+                return "images/fruitBanana.png";
+
+            case 1:
+                return "images/fruitCherry.png";
+
+            case 2: 
+                return "images/fruitApple.png";
+
+            case 3:
+                return "images/fruitPineapple.png";
+
+            case 4: 
+                return "images/fruitGrapes.png";
+
+            case 5: 
+                return "images/fruitWatermelon.png";
+        }
+    }
+
+    selectTrash() {
+        let randomNumber = Math.floor(Math.random() * 2);
+        this.isFruit = false;
+
+        switch (randomNumber) {
+            case 0:
+                return "images/trashBanana.png";
+
+            case 1:
+                return "images/trashApple.png";
+
+        }
+    }
 }
