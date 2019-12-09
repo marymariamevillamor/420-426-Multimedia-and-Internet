@@ -1,12 +1,12 @@
 class Basket {
     constructor() {
         this.width = 450;
-        this.height = 300;
+        this.height = 200;
 
         this.x = canvas.width / 2;
         this.y = canvas.height - this.height;
 
-        this.velocityX = 50;
+        this.velocityX = 20;
     }
 
     draw() {
@@ -30,7 +30,7 @@ class Basket {
             this.x =  1;
         }
         else {
-            this.velocityX = 50;
+            this.velocityX = 20;
         }     
     }
 

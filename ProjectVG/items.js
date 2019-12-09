@@ -34,6 +34,10 @@ class Item {
         if ((this.x + this.width) > canvas.width || this.x < 0) {
             this.positionRandomly();
         }
+
+        if (this.y > canvas.height) {
+            this.deleteFruit();
+        }
     }
 
 	isColliding(item) {
@@ -57,6 +61,7 @@ class Item {
     selectFruit() {
         let randomNumber = Math.floor(Math.random() * 6);
         this.isFruit = true;
+        type = " ";
 
         switch (randomNumber) {
             case 0:
@@ -69,6 +74,7 @@ class Item {
                 return "images/fruitApple.png";
 
             case 3:
+                type = "pineapple";
                 return "images/fruitPineapple.png";
 
             case 4: 
@@ -94,16 +100,33 @@ class Item {
     }
 
     catchFruit(basket) {
-        if (this.x < (basket.x + basket.width) && 
-            (this.x + this.width) > basket.x &&
-            this.y < (basket.y + basket.height) &&
-            (this.y + this.height) > basket.y) {
-                this.deleteFruit();
-            }
+        if (    (this.x + (this.width / 2)) > basket.x &&
+                (this.x + (this.width / 2)) < (basket.x + basket.width) &&
+                (this.y + this.height) < (basket.y + (basket.height / 2)) &&
+                ((this.y + this.height) > basket.y)) {
+                this.deleteFruit()
+
+                if (this.isFruit == true) {
+                    if (type == "pineapple") {
+                        points += 5;
+                    }
+                    else {
+                        points++;
+                    }
+                }
+
+                this.powerups();
+        }       
     }
 
     deleteFruit() {
         let index = items.indexOf(this);
         items.splice(index, 1);
+    }
+
+    powerups() {
+        if (points > 10) {
+            //this.generateRandomSpeed 
+        }
     }
 }

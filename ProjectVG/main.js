@@ -9,19 +9,14 @@ const items = [];
 let item = new Item();
 let basket = new Basket();
 
-document.onkeydown = moveBasket;
+let points = 0;
+let type;
 
-function moveBasket(event) {
-    switch (event.keyCode) {
-        case 37:
-            basket.moveLeft();
-            break;
-        
-        case 39:
-            basket.moveRight();
-            break;
-    }
-}
+
+let keys = {};
+window.addEventListener("keydown", event => { keys[event.key] = true;});
+window.addEventListener("keyup", event => { keys[event.key] = false;});
+
 
 function spawnItem(itemType) {
 
@@ -51,6 +46,14 @@ function animate() {
     context.fillStyle = "lightcoral";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
+
+    if (keys.ArrowLeft) {
+        basket.moveLeft();
+    }
+    if (keys.ArrowRight) {
+        basket.moveRight();
+    }
+
     items.map(item => item.update(basket));
     basket.update();
 }
@@ -59,3 +62,4 @@ animate();
 
 setInterval(function() { spawnItem("fruit"); }, 2500);
 setInterval(function() { spawnItem("trash"); }, 3000);
+
