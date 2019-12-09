@@ -4,13 +4,18 @@ const context = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+let points = 0;
+let extraLife;
+
+let lives = 2;
+
+let type;
+let colour = "lightcoral";
+
 const items = [];
 
 let item = new Item();
 let basket = new Basket();
-
-let points = 0;
-let type;
 
 
 let keys = {};
@@ -43,7 +48,7 @@ function spawnItem(itemType) {
 
 function animate() {
     requestAnimationFrame(animate);
-    context.fillStyle = "lightcoral";
+    context.fillStyle = colour;
     context.fillRect(0, 0, canvas.width, canvas.height);
 
 
@@ -53,13 +58,12 @@ function animate() {
     if (keys.ArrowRight) {
         basket.moveRight();
     }
-
     items.map(item => item.update(basket));
     basket.update();
 }
 
 animate();
 
-setInterval(function() { spawnItem("fruit"); }, 2500);
-setInterval(function() { spawnItem("trash"); }, 3000);
+setInterval(function() { spawnItem("fruit"); }, 1500);
+setInterval(function() { spawnItem("trash"); }, 2000);
 

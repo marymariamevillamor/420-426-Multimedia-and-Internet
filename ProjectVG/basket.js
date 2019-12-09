@@ -15,9 +15,18 @@ class Basket {
         context.drawImage(basketIMG, this.x, this.y, this.width, this.height);
     }
 
+    displayStatus() {
+		context.save();
+		context.font = "30px Arial";
+		context.fillStyle = "white";
+        context.fillText(`Points: ${points}`, (canvas.width - 150), 50);
+		context.restore();
+	}
+
     update() {
         this.checkBounds();
         this.draw();
+        this.displayStatus();
     }
 
     checkBounds() {
