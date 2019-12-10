@@ -7,7 +7,7 @@ canvas.height = window.innerHeight;
 let points = 0;
 let extraLife;
 
-let lives = 2;
+let lives = 3;
 
 let type;
 let colour = "lightcoral";
@@ -23,6 +23,15 @@ window.addEventListener("keydown", event => { keys[event.key] = true;});
 window.addEventListener("keyup", event => { keys[event.key] = false;});
 
 
+// let menu = new Image();
+// menu.src = "images/StartScreen.png";
+// menu.onload = function() {
+//     context.drawImage(menu, 0, 0, canvas.width, canvas.height);
+// }
+
+context.clearRect(0, 0, canvas.width, canvas.height);
+
+        
 function spawnItem(itemType) {
 
     if (itemType == "fruit") {
@@ -66,4 +75,8 @@ animate();
 
 setInterval(function() { spawnItem("fruit"); }, 1500);
 setInterval(function() { spawnItem("trash"); }, 2000);
+
+
+
+
 

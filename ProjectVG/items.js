@@ -7,6 +7,7 @@ class Item {
         this.levelup();
 
         this.isFruit = false;
+
         if (type == "fruit") {
             this.src = this.selectFruit();
         }
@@ -20,13 +21,11 @@ class Item {
         itemIMG.src = this.src;
         context.drawImage(itemIMG, this.x, this.y, this.width, this.height);
 
-        let heartLives = [];
         let x = 15;
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < lives; i++) {
             let heart = new Image();
             heart.src = "images/pixelHeart.png";
             context.drawImage(heart, x, 10, 100, 100);
-            heartLives.push(heart);
 
             x += 110;
         }
@@ -76,9 +75,9 @@ class Item {
     selectFruit() {
         let randomNumber = Math.floor(Math.random() * 8);
         this.isFruit = true;
-        type = " ";
-        extraLife = false;
-        
+        this.type = " ";
+        this.extraLife = false;
+
         switch (randomNumber) {
             case 0:
                 return "images/fruitBanana.png";
@@ -90,7 +89,7 @@ class Item {
                 return "images/fruitApple.png";
 
             case 3:
-                type = "pineapple";
+                this.type = "pineapple";
                 return "images/fruitPineapple.png";
 
             case 4: 
@@ -103,7 +102,7 @@ class Item {
                 return "images/fruitOrange.png";
             
             case 7:
-                extraLife = true;
+                this.extraLife = true;
                 return "images/pixelHeart.png";
         }
     }
@@ -141,20 +140,21 @@ class Item {
                 ((this.y + this.height) > basket.y)) {
                 this.deleteFruit()
 
-                if (this.isFruit == true) {
-                    if (type == "pineapple") {
-                        points += 5;
-                    }
-                    else {
-                        points++;
-                    }
+                if (this.extraLife == true) {
+                    this.bonus();
                 }
                 else {
-                    this.gameover();
-                }
-
-                if (extraLife == true) {
-                    this.bonus();
+                    if (this.isFruit == true) {
+                        if (this.type == "pineapple") {
+                            points += 5;
+                        }
+                        else {
+                            points++;
+                        }
+                    }
+                    else {
+                        this.gameover();
+                    }
                 }
         }       
     }
@@ -165,14 +165,20 @@ class Item {
     }
 
     levelup() {
-        if (points > 5) {
-            this.generateRandomSpeed(10, 15);            
+        if (points > 100) {
+            this.generateRandomSpeed(75, 100);
         }
-        else if (points > 10) {
-            this.generateRandomSpeed(20, 30);
+        else if (points > 80) {
+            this.generateRandomSpeed(60, 75);
+        }
+        else if (points > 60) {
+            this.generateRandomSpeed(45, 60);
+        }
+        else if (points > 40) {
+            this.generateRandomSpeed(25, 40);
         }
         else if (points > 20) {
-            this.generateRandomSpeed(30, 50);
+            this.generateRandomSpeed(10, 25);
         }
         else {
             this.generateRandomSpeed(5, 10);
@@ -181,13 +187,11 @@ class Item {
 
     gameover() {
         lives--;
-        console.log(lives);
     }
 
     bonus() {
-        if (lives < 2) {
+        if (lives < 3) {
             lives++;
         }
-        console.log(lives);
     }
 }
