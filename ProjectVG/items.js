@@ -171,19 +171,19 @@ class Item {
 
     levelup() {
         if (points > 60) {
-            this.generateRandomSpeed(30, 40);
+            this.generateRandomSpeed(10, 35);
         }
         else if (points > 50) {
-            this.generateRandomSpeed(25, 35);
+            this.generateRandomSpeed(10, 30);
         }
         else if (points > 40) {
-            this.generateRandomSpeed(20, 30);
+            this.generateRandomSpeed(10, 25);
         }
         else if (points > 30) {
-            this.generateRandomSpeed(15, 25);
+            this.generateRandomSpeed(10, 20);
         }
         else if (points > 20) {
-            this.generateRandomSpeed(10, 20);
+            this.generateRandomSpeed(10, 15);
         }
         else {
             this.generateRandomSpeed(5, 10);

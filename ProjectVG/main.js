@@ -18,9 +18,7 @@ let intervalTRASH
 
 let menu = new Image();
 menu.src = "images/StartScreen.png";
-menu.onload = function() {
-    context.drawImage(menu, 0, 0, canvas.width, canvas.height);
-}
+menu.onload = () => { context.drawImage(menu, 0, 0, canvas.width, canvas.height); }
 
 let start = false;
 let keys = {};
@@ -64,7 +62,6 @@ function animate() {
     //from lab 7.3 Car Simulation
     if (keys.ArrowLeft) {
         basket.moveLeft();
-        console.log(start);
     }
     if (keys.ArrowRight) {
         basket.moveRight();
