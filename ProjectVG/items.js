@@ -3,7 +3,7 @@ class Item {
         this.width = 200;
         this.height = 230;
 
-        this.positionRandomly();
+        this.positionRandomly();  //from lab 7.2 Bubbles
         this.levelup();
 
         this.isFruit = false;
@@ -48,26 +48,30 @@ class Item {
         if (this.y > canvas.height) {
             this.deleteFruit();
 
-            if (this.isFruit == true) {
+            if (this.isFruit == true && this.extraLife == false) {
                 this.gameover();
             }
         }
     }
 
+    //from lab 7.2 Bubbles
 	isColliding(item) {
 		const distance = this.calculateDistance(item);
 		return (distance <= (this.width + item.width) && distance > 0);
 	}
 
+    //from lab 7.2 Bubbles
 	calculateDistance(item) {
 		return Math.hypot(this.x - item.x, this.y - item.y); 
 	}
 
+    //from lab 7.2 Bubbles
     positionRandomly() {
         this.x = this.width + (Math.random() * ((canvas.width - 30) - (this.width * 2)));
 		this.y = -(this.width + (Math.random() * (canvas.height - (this.width * 2))));
     }
     
+    //from W3School
     generateRandomSpeed(min, max) {
         this.speedY = Math.floor(Math.random() * (max - min + 1) ) + min;
     }
@@ -159,26 +163,27 @@ class Item {
         }       
     }
 
+    //from W3School
     deleteFruit() {
         let index = items.indexOf(this);
         items.splice(index, 1);
     }
 
     levelup() {
-        if (points > 100) {
-            this.generateRandomSpeed(75, 100);
+        if (points > 60) {
+            this.generateRandomSpeed(30, 40);
         }
-        else if (points > 80) {
-            this.generateRandomSpeed(60, 75);
-        }
-        else if (points > 60) {
-            this.generateRandomSpeed(45, 60);
+        else if (points > 50) {
+            this.generateRandomSpeed(25, 35);
         }
         else if (points > 40) {
-            this.generateRandomSpeed(25, 40);
+            this.generateRandomSpeed(20, 30);
+        }
+        else if (points > 30) {
+            this.generateRandomSpeed(15, 25);
         }
         else if (points > 20) {
-            this.generateRandomSpeed(10, 25);
+            this.generateRandomSpeed(10, 20);
         }
         else {
             this.generateRandomSpeed(5, 10);
@@ -187,6 +192,10 @@ class Item {
 
     gameover() {
         lives--;
+
+        if (lives == 0){
+            start = false;
+        }
     }
 
     bonus() {
